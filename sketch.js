@@ -282,6 +282,7 @@ function gameRestart(){
   if((key === ' ' && gameClear === true) 
     || (key === ' ' && gameOver === true)){
 
+      //전부 리셋
       px = 110;
       py = 310;
 
@@ -291,7 +292,12 @@ function gameRestart(){
       bean1, bean2, bean3, bean4, bean5 = true;
 
       gameClear, gameOver = false;
-    } 
+
+      for (let i = 0; i < eCnt; i++) {
+        ex[i] = random(100, 700);
+        ey[i] = random(100, 500);
+      }
+    }  
 }
 
 function setup() {
