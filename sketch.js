@@ -10,16 +10,7 @@ function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
 } //벽그리기함수
 
-function setup() {
-  createCanvas(800, 600);
-
-  px = 110;
-  py = 300;
-}
-
-function draw() {
-  background(0);
-
+function drawWalls(){
   fill(0, 0, 180);
   stroke(0, 191, 255);
   strokeWeight(3);
@@ -52,6 +43,9 @@ function draw() {
   drawWall(360, 355, 90, 25);
   drawWall(425, 275, 25, 80);
 
+  drawWall(335, 435, 130, 15);
+  drawWall(390, 415, 15, 50);
+
   //왼쪽 내부 장애물
   drawWall(130, 150, 140, 25);
   drawWall(130, 150, 35, 130);
@@ -72,13 +66,34 @@ function draw() {
   drawWall(520, 355, 150, 25);
   drawWall(645, 435, 25, 30);
   drawWall(520, 410, 150, 25);
+}
 
-  //아래쪽 가운데 장애물 벽
-  drawWall(330, 435, 150, 25);
-  drawWall(390, 405, 25, 75);
-
-  //팩맨 캐릭터
+function drawPacman(){
+    //팩맨 캐릭터
   fill(255, 255, 0);
   noStroke();
   arc(px, py, pd, pd, 0.3, TWO_PI - 0.3);
+}
+
+function movePacman(){
+  if (keyIsDown(LEFT_ARROW)) px -= 3;
+  if (keyIsDown(RIGHT_ARROW)) px += 3;
+  if (keyIsDown(UP_ARROW)) py -= 3;
+  if (keyIsDown(DOWN_ARROW)) py += 3;
+}
+
+function setup() {
+  createCanvas(800, 600);
+
+  px = 110;
+  py = 300;
+}
+
+function draw() {
+  background(0);
+
+  drawWalls();
+  drawPacman();
+  movePacman();
+
 }
