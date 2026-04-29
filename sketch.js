@@ -220,10 +220,16 @@ function drawEnemy(){
 }
 
 function hitEnemy(){
-  let d;
+  for(let i = 0; i < eCnt; i++ ){
+    let d = dist(px, py, ex[i], ey[2]);
   
-  if(d < 18)
-    energy -= 1;
+    if(d < 18){
+      energy -= 1;
+      
+      px = 110;
+      py = 310;
+    }
+  }
 }
 
 function textScore(){
@@ -259,6 +265,7 @@ function draw() {
   drawEnemy();
   drawPacman();
   eatBeans();
+  hitEnemy();
   textScore();
   textEnergy();
 }
