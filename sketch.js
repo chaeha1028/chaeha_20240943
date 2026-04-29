@@ -1,5 +1,5 @@
 let px, py; //팩맨위치
-let pd; //팩맨크디
+let pd = 10; //팩맨크디
 
 let dx; //콩위치
 let dy;
@@ -18,6 +18,8 @@ function draw() {
   background(0);
 
   fill(0, 0, 180);
+  stroke(0, 191, 255);
+  strokeWeight(3);
 
   //위쪽 벽
   drawWall(50, 70, 310, 35);
@@ -40,4 +42,16 @@ function draw() {
   drawWall(0, 340, 85, 30);
   drawWall(725, 245, 85, 30);
   drawWall(725, 340, 85, 30);
+
+  //내부 중간 장애물 
+  drawWall(360, 250, 90, 25);
+  drawWall(360, 275, 25, 80);
+  drawWall(360, 355, 90, 25);
+  drawWall(425, 275, 25, 80);
+
+  //왼쪽 내부 장애물
+  drawWall(130, 150, 140, 25);
+  drawWall(130, 150, 35, 130);
+  drawWall(200, 200, 140, 25);
+
 }
