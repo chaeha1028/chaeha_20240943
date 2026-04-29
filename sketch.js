@@ -178,37 +178,43 @@ function eatBeans(){
   
   let d1 = dist(px, py, 300, 300);
   if (bean1 === true && d1 < 16) 
-    {bean1 === false;
+    {bean1 = false;
     score += 10;
   }
   
   let d2 = dist(px, py, 430, 470);
-  if (bean1 === true && d1 < 16) 
-    {bean1 === false;
+  if (bean2 === true && d2 < 16) 
+    {bean2 = false;
     score += 10;
   }
   
   let d3 = dist(px, py, 629, 240);
-  if (bean1 === true && d1 < 16) 
-    {bean1 === false;
+  if (bean3 === true && d3 < 16) 
+    {bean3 = false;
     score += 10;
   }
   
   let d4 = dist(px, py, 582, 472);
-  if (bean1 === true && d1 < 16) 
-    {bean1 === false;
+  if (bean4 === true && d4 < 16) 
+    {bean4 = false;
     score += 10;
   }
 
   let d5 = dist(px, py, 190, 217);
-  if (bean1 === true && d1 < 16) 
-    {bean1 === false;
+  if (bean5 === true && d5 < 16) 
+    {bean5 = false;
     score += 10;
   }
 }
 
+function textScore(){
+  fill(255);
+  textSize(20);
+  text("점수: ", score, 700, 620)
+}
+
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 650);
 
   px = 110;
   py = 310;
@@ -222,4 +228,5 @@ function draw() {
   drawBeans();
   drawPacman();
   eatBeans();
+  textScore();
 }
