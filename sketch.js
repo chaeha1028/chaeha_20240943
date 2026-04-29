@@ -6,7 +6,7 @@ let dSize = 12; //콩크기
 
 let ex = [];
 let ey = [];
-let eSize = 15;
+let eSize = 16;
 let eCnt = 5;
 
 let score = 0;
@@ -215,13 +215,15 @@ function drawEnemy(){
   noStroke();
 
   for (let i = 0; i < eCnt; i++) {
-    ex[i] = random(100, 700);
-    ey[i] = random(100, 550);
-  }
-
-  for (let i = 0; i < eCnt; i++) {
     ellipse(ex[i], ey[i], 20, 20);
   }
+}
+
+function hitEnemy(){
+  let d;
+  
+  if(d < 18)
+    energy -= 1;
 }
 
 function textScore(){
@@ -241,6 +243,11 @@ function setup() {
 
   px = 110;
   py = 310;
+
+  for (let i = 0; i < eCnt; i++) {
+    ex[i] = random(100, 700);
+    ey[i] = random(100, 500);
+  }
 }
 
 function draw() {
