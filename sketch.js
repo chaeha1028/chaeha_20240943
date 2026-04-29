@@ -8,6 +8,14 @@ let dx = [];
 let dy = [];
 let dCnt = 5;
 
+let score = 0;
+
+let bean1 = true; //콩 살아있음 -> flase: 콩이 팩맨과 겹친 경우
+let bean2 = true;
+let bean3 = true;
+let bean4 = true;
+let bean5 = true;
+
 function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
 } //벽그리기함수
@@ -159,11 +167,17 @@ function drawBean(x, y){
 }
 
 function drawBeans(){
-  drawBean(300, 300);
-  drawBean(430, 470);
-  drawBean(629, 240);
-  drawBean(582, 472);
-  drawBean(190, 217);
+  if(bean1 === true) drawBean(300, 300);
+  if(bean2 === true) drawBean(430, 470);
+  if(bean3 === true) drawBean(629, 240);
+  if(bean4 === true) drawBean(582, 472);
+  if(bean5 === true) drawBean(190, 217);
+}
+
+function eatBeans(){
+  if (bean1 === true && //충돌조건 작성 필요
+    ) {bean1 === false};
+    score += 10;
 }
 
 function setup() {
