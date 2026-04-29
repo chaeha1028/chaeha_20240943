@@ -77,7 +77,11 @@ function drawPacman(){
 
 function checkWall(nx, ny, wx, wy, ww, wh){
     if(!(nx + 10 > wx && nx -10 < wx + ww &&
-    ny + 10 > wy && ny -10 < wy + wh));
+    ny + 10 > wy && ny -10 < wy + wh)){
+
+      px = nx; //즉 현 위치는 이동한 위치가 됨
+      py = ny;
+    }
 }
 
 function movePacman() {
@@ -90,9 +94,6 @@ function movePacman() {
   if (keyIsDown(DOWN_ARROW)) ny += 3;
 
   checkWall(nx, ny, 50, 70, 310, 35);
-
-  px = nx; //즉 현 위치는 이동한 위치가 됨
-  py = ny;
 }
 
 function setup() {
