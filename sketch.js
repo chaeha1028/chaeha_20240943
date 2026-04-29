@@ -84,8 +84,11 @@ function movePacman() {
   if (keyIsDown(UP_ARROW)) ny -= 3;
   if (keyIsDown(DOWN_ARROW)) ny += 3;
 
-  if (!(nx + 10 > 50 && ny + 10 > 70) &&
-      !(nx + 10 > 420 && ny + 10 > 70)) {
+  if (!(nx + 10 > 50 && nx - 10 < 50 + 310 &&
+        ny + 10 > 70 && ny - 10 < 70 + 35) && //모든조건만족필요
+
+      !(nx + 10 > 420 && nx -10 < 420 + 310 &&
+        ny + 10 > 70 && ny - 10 < 70 + 35)) {
 
   px = nx; //즉 현 위치는 이동한 위치가 됨
   py = ny;
