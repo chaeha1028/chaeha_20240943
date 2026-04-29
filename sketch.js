@@ -18,5 +18,15 @@ function draw() {
   background(0);
 
   fill(0, 0, 180);
-  rect(wx, wy, ww, wh);
+
+  //위쪽 벽
+  drawWall(50, 70, 310, 35);
+  drawWall(420, 70, 310, 35);
+  drawWall(50, 70, 25, 130);
+  drawWall(725, 70, 25, 130);
+  //아래쪽 벽
+  drawWall(50, 500, 700, 25);
+  drawWall(50, 405, 25, 120);
+  drawWall(725, 405, 25, 120);
+
 }
