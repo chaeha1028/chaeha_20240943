@@ -175,9 +175,36 @@ function drawBeans(){
 }
 
 function eatBeans(){
-  if (bean1 === true && //충돌조건 작성 필요
-    ) {bean1 === false};
+  
+  let d1 = dist(px, py, 300, 300);
+  if (bean1 === true && d1 < 16) 
+    {bean1 === false;
     score += 10;
+  }
+  
+  let d2 = dist(px, py, 430, 470);
+  if (bean1 === true && d1 < 16) 
+    {bean1 === false;
+    score += 10;
+  }
+  
+  let d3 = dist(px, py, 629, 240);
+  if (bean1 === true && d1 < 16) 
+    {bean1 === false;
+    score += 10;
+  }
+  
+  let d4 = dist(px, py, 582, 472);
+  if (bean1 === true && d1 < 16) 
+    {bean1 === false;
+    score += 10;
+  }
+
+  let d5 = dist(px, py, 190, 217);
+  if (bean1 === true && d1 < 16) 
+    {bean1 === false;
+    score += 10;
+  }
 }
 
 function setup() {
@@ -194,4 +221,5 @@ function draw() {
   drawWalls();
   drawBeans();
   drawPacman();
+  eatBeans();
 }
