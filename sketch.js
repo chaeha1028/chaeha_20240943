@@ -57,6 +57,26 @@ function draw() {
   drawWall(130, 150, 35, 130);
   drawWall(200, 210, 120, 25);
 
+  drawWall(265, 390, 25, 80);
+  drawWall(130, 390, 25, 80);
+  drawWall(130, 445, 160, 25);
+  drawWall(150, 330, 150, 15);
+
+  //오른쪽 내부 장애물
+  drawWall(510, 160, 180, 25);
+  drawWall(510, 160, 25, 120);
+  drawWall(665, 160, 25, 120);
+  drawWall(590, 280, 100, 25);
+
+  drawWall(520, 380, 25, 30);
+  drawWall(520, 355, 150, 25);
+  drawWall(645, 435, 25, 30);
+  drawWall(520, 410, 150, 25);
+
+  //아래쪽 가운데 장애물 벽
+  drawWall(330, 435, 150, 25);
+  drawWall(390, 405, 25, 75);
+
   //팩맨 캐릭터
   fill(255, 255, 0);
   noStroke();
