@@ -102,10 +102,10 @@ function movePacman() {
   let nx = px; //nx는 이동한 위치
   let ny = py;
 
-  if (keyIsDown(LEFT_ARROW)) nx -= 3;
-  if (keyIsDown(RIGHT_ARROW)) nx += 3;
-  if (keyIsDown(UP_ARROW)) ny -= 3;
-  if (keyIsDown(DOWN_ARROW)) ny += 3;
+  if (keyIsDown(LEFT_ARROW)) nx -= 5;
+  if (keyIsDown(RIGHT_ARROW)) nx += 5;
+  if (keyIsDown(UP_ARROW)) ny -= 5;
+  if (keyIsDown(DOWN_ARROW)) ny += 5;
 
   if (nx < 0 && ny > 275 && ny < 340){
     nx = 800;
@@ -247,11 +247,35 @@ function textEnergy(){
 }
 
 function gameEnd(){
+  if(bean1 === false &&
+    bean2 === false &&
+    bean3 === false &&
+    bean4 === false &&
+    bean5 === false){
+      gameClear = true;
+    }
 
+    if(energy == 0){
+      gameOver = true;
+    }
 }
 
 function textGameMessage(){
-  
+  if(gameClear === true){    
+    fill(255);
+    textSize(80);
+    stroke(46, 139, 87);
+    strokeWeight(10);
+    text("게임 승리", 250, 350);
+  }
+
+  if(gameOver === true){   
+    fill(255);
+    textSize(80);
+    stroke(255, 0, 0);
+    strokeWeight(10);
+    text("게임 오버", 250, 300);
+  }
 }
 
 function setup() {
@@ -278,4 +302,6 @@ function draw() {
   hitEnemy();
   textScore();
   textEnergy();
+  gameEnd();
+  textGameMessage();
 }
