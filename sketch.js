@@ -76,7 +76,7 @@ function drawPacman(){
 }
 
 function movePacman() {
-  let nx = px;
+  let nx = px; //nx는 이동한 위치
   let ny = py;
 
   if (keyIsDown(LEFT_ARROW)) nx -= 3;
@@ -84,14 +84,13 @@ function movePacman() {
   if (keyIsDown(UP_ARROW)) ny -= 3;
   if (keyIsDown(DOWN_ARROW)) ny += 3;
 
-  if (!(nx > 50 && nx < 50+310 && ny > 70 && ny < 70+35) &&
-      !(nx > 420 && nx < 420+310 && ny > 70 && ny < 70+35)) {
+  if (!(nx + 10 > 50 && ny + 10 > 70) &&
+      !(nx + 10 > 420 && ny + 10 > 70)) {
 
-  px = nx;
+  px = nx; //즉 현 위치는 이동한 위치가 됨
   py = ny;
   }
 }
-
 
 function setup() {
   createCanvas(800, 600);
