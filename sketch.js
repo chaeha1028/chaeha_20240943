@@ -83,8 +83,23 @@ function checkWall(nx, ny, wx, wy, ww, wh){ // 벽인지 아닌지 체크하는 
       ny -10 < wy + wh);
 } //벽에 닿으면 true(벽임) 반환, 벽에 안닿으면 false(벽 아님) 반환
 
-function hitWall(){
-    if (
+function movePacman() {
+  let nx = px; //nx는 이동한 위치
+  let ny = py;
+
+  if (keyIsDown(LEFT_ARROW)) nx -= 3;
+  if (keyIsDown(RIGHT_ARROW)) nx += 3;
+  if (keyIsDown(UP_ARROW)) ny -= 3;
+  if (keyIsDown(DOWN_ARROW)) ny += 3;
+
+  if (nx < 0 && ny > 275 && ny < 340){
+    nx = 800;
+  }
+  else if (nx > 800 && ny > 275 && ny < 340){
+    nx = 0;
+  }
+
+  if (
     checkWall(nx, ny, 50, 70, 310, 35) === false &&
     checkWall(nx, ny, 420, 70, 310, 35) === false &&
     checkWall(nx, ny, 50, 70, 35, 175) === false &&
@@ -134,16 +149,6 @@ function hitWall(){
   }
 }
 
-function movePacman() {
-  let nx = px; //nx는 이동한 위치
-  let ny = py;
-
-  if (keyIsDown(LEFT_ARROW)) nx -= 3;
-  if (keyIsDown(RIGHT_ARROW)) nx += 3;
-  if (keyIsDown(UP_ARROW)) ny -= 3;
-  if (keyIsDown(DOWN_ARROW)) ny += 3;
-}
-
 function setup() {
   createCanvas(800, 600);
 
@@ -157,6 +162,5 @@ function draw() {
   movePacman();
   drawWalls();
   drawPacman();
-  hitWall();
 
 }
