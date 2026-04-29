@@ -1,10 +1,8 @@
 let px, py; //팩맨위치
 let pd = 20; //팩맨크디
 
-let dx; //콩위치
-let dy;
 let dActive; //콩생사여부
-let dSize = 15; //콩크기
+let dSize = 12; //콩크기
 
 function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
@@ -149,6 +147,13 @@ function movePacman() {
   }
 }
 
+function drawBean(x, y){
+  fill(46, 139, 87);
+  noStroke();
+  ellipse(x, y, dSize, dSize);
+}
+
+
 function setup() {
   createCanvas(800, 600);
 
@@ -162,5 +167,6 @@ function draw() {
   movePacman();
   drawWalls();
   drawPacman();
+  drawBean(300, 300);
 
 }
