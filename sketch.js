@@ -155,16 +155,16 @@ function drawBean(x, y){
   fill(46, 139, 87);
   noStroke();
 
-  for(let i=0; i<dCnt; i++){
-    dx[i] = random(50, 750);
-    dy[i] = random(50, 750);
-  }
-
-  for(let i=0; i<dCnt; i++){
-    ellipse(dx[i], dy[i], dSize, dSize);
-  }
+  ellipse(x, y, dSize, dSize);
 }
 
+function drawBeans(){
+  drawBean(300, 300);
+  drawBean(430, 470);
+  drawBean(629, 240);
+  drawBean(582, 472);
+  drawBean(190, 217);
+}
 
 function setup() {
   createCanvas(800, 600);
@@ -178,6 +178,6 @@ function draw() {
 
   movePacman();
   drawWalls();
+  drawBeans();
   drawPacman();
-  drawBean();
 }
