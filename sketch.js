@@ -4,13 +4,13 @@ let pd = 20; //팩맨크디
 let dActive; //콩생사여부
 let dSize = 12; //콩크기
 
-let ex = [];
+let ex = []; //적위치
 let ey = [];
 let eSize = 16;
 let eCnt = 5;
 
-let score = 0;
-let energy = 3;
+let score = 0; //점수
+let energy = 3; //생명
 
 let bean1 = true; //콩 살아있음 -> flase: 콩이 팩맨과 겹친 경우
 let bean2 = true;
@@ -18,6 +18,8 @@ let bean3 = true;
 let bean4 = true;
 let bean5 = true;
 
+let gameOver = false;
+let gameClear = false;
 
 function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
@@ -215,13 +217,13 @@ function drawEnemy(){
   noStroke();
 
   for (let i = 0; i < eCnt; i++) {
-    ellipse(ex[i], ey[i], 20, 20);
+    ellipse(ex[i], ey[i], eSize, eSize);
   }
 }
 
 function hitEnemy(){
   for(let i = 0; i < eCnt; i++ ){
-    let d = dist(px, py, ex[i], ey[2]);
+    let d = dist(px, py, ex[i], ey[i]);
   
     if(d < 18){
       energy -= 1;
@@ -242,6 +244,14 @@ function textEnergy(){
   fill(255);
   textSize(20);
   text("생명: "+ energy, 700, 590);
+}
+
+function gameEnd(){
+
+}
+
+function textGameMessage(){
+  
 }
 
 function setup() {
