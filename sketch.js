@@ -4,7 +4,7 @@ let pd = 20; //팩맨크디
 let dx; //콩위치
 let dy;
 let dActive; //콩생사여부
-let dSize; //콩크기
+let dSize = 15; //콩크기
 
 function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
@@ -75,25 +75,36 @@ function drawPacman(){
   arc(px, py, pd, pd, 0.3, TWO_PI - 0.3);
 }
 
-function movePacman(){
-  if (keyIsDown(LEFT_ARROW)) px -= 3;
-  if (keyIsDown(RIGHT_ARROW)) px += 3;
-  if (keyIsDown(UP_ARROW)) py -= 3;
-  if (keyIsDown(DOWN_ARROW)) py += 3;
+function movePacman() {
+  let nx = px;
+  let ny = py;
+
+  if (keyIsDown(LEFT_ARROW)) nx -= 3;
+  if (keyIsDown(RIGHT_ARROW)) nx += 3;
+  if (keyIsDown(UP_ARROW)) ny -= 3;
+  if (keyIsDown(DOWN_ARROW)) ny += 3;
+
+  if (!(nx > 50 && nx < 50+310 && ny > 70 && ny < 70+35) &&
+      !(nx > 420 && nx < 420+310 && ny > 70 && ny < 70+35)) {
+
+  px = nx;
+  py = ny;
+  }
 }
+
 
 function setup() {
   createCanvas(800, 600);
 
   px = 110;
-  py = 300;
+  py = 310;
 }
 
 function draw() {
   background(0);
 
+  movePacman();
   drawWalls();
   drawPacman();
-  movePacman();
 
 }
