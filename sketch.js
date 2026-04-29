@@ -278,6 +278,22 @@ function textGameMessage(){
   }
 }
 
+function gameRestart(){
+  if((key === ' ' && gameClear === true) 
+    || (key === ' ' && gameOver === true)){
+
+      px = 110;
+      py = 310;
+
+      score = 0;
+      energy = 3;
+
+      bean1, bean2, bean3, bean4, bean5 = true;
+
+      gameClear, gameOver = false;
+    } 
+}
+
 function setup() {
   createCanvas(800, 650);
 
@@ -304,4 +320,5 @@ function draw() {
   textEnergy();
   gameEnd();
   textGameMessage();
+  gameRestart();
 }
