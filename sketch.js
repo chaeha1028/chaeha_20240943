@@ -75,14 +75,13 @@ function drawPacman(){
   arc(px, py, pd, pd, 0.3, TWO_PI - 0.3);
 }
 
-function checkWall(nx, ny, wx, wy, ww, wh){
-    if(!(nx + 10 > wx && nx -10 < wx + ww &&
-    ny + 10 > wy && ny -10 < wy + wh)){
-
-      px = nx; //즉 현 위치는 이동한 위치가 됨
-      py = ny;
-    }
-}
+function checkWall(nx, ny, wx, wy, ww, wh){ // 벽인지 아닌지 체크하는 함수
+    return(
+      nx + 10 > wx && 
+      nx -10 < wx + ww &&
+      ny + 10 > wy &&
+      ny -10 < wy + wh);
+} //벽에 닿으면 true(벽임) 반환, 벽에 안닿으면 false(벽 아님) 반환
 
 function movePacman() {
   let nx = px; //nx는 이동한 위치
@@ -93,7 +92,15 @@ function movePacman() {
   if (keyIsDown(UP_ARROW)) ny -= 3;
   if (keyIsDown(DOWN_ARROW)) ny += 3;
 
-  checkWall(nx, ny, 50, 70, 310, 35);
+  if (
+    checkWall(nx, ny, 50, 70, 310, 35) === false &&
+    checkWall(nx, ny, 420, 70, 310, 35) === false &&
+    checkWall(nx, ny, 50, 70, 35, 175) === false &&
+    checkWall(nx, ny, 725, 70, 35, 175) === false
+  )
+
+  px = nx; //즉 현 위치는 이동한 위치가 됨
+  py = ny;
 }
 
 function setup() {
