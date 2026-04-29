@@ -266,7 +266,12 @@ function textGameMessage(){
     textSize(80);
     stroke(46, 139, 87);
     strokeWeight(10);
-    text("게임 승리", 250, 350);
+    text("게임 승리", 250, 300);
+
+    textSize(30);
+    stroke(255, 105, 180);
+    strokeWeight(4);
+    text("다시 시작하고 싶으시면 스페이스바를 누르세요.", 50, 360);
   }
 
   if(gameOver === true){   
@@ -275,6 +280,11 @@ function textGameMessage(){
     stroke(255, 0, 0);
     strokeWeight(10);
     text("게임 오버", 250, 300);
+
+    textSize(30);
+    stroke(255, 105, 180);
+    strokeWeight(4);
+    text("다시 시작하고 싶으시면 스페이스바를 누르세요.", 130, 360);
   }
 }
 
