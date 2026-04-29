@@ -1,5 +1,5 @@
 let px, py; //팩맨위치
-let pd = 10; //팩맨크디
+let pd = 20; //팩맨크디
 
 let dx; //콩위치
 let dy;
@@ -12,6 +12,9 @@ function drawWall(wx, wy, ww, wh){
 
 function setup() {
   createCanvas(800, 600);
+
+  px = 110;
+  py = 300;
 }
 
 function draw() {
@@ -52,6 +55,10 @@ function draw() {
   //왼쪽 내부 장애물
   drawWall(130, 150, 140, 25);
   drawWall(130, 150, 35, 130);
-  drawWall(200, 200, 140, 25);
+  drawWall(200, 210, 120, 25);
 
+  //팩맨 캐릭터
+  fill(255, 255, 0);
+  noStroke();
+  arc(px, py, pd, pd, 0.3, TWO_PI - 0.3);
 }
