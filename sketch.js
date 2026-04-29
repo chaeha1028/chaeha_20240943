@@ -4,6 +4,10 @@ let pd = 20; //팩맨크디
 let dActive; //콩생사여부
 let dSize = 12; //콩크기
 
+let dx = [];
+let dy = [];
+let dCnt = 5;
+
 function drawWall(wx, wy, ww, wh){
   rect(wx, wy, ww, wh);
 } //벽그리기함수
@@ -150,7 +154,15 @@ function movePacman() {
 function drawBean(x, y){
   fill(46, 139, 87);
   noStroke();
-  ellipse(x, y, dSize, dSize);
+
+  for(let i=0; i<dCnt; i++){
+    dx[i] = random(50, 750);
+    dy[i] = random(50, 750);
+  }
+
+  for(let i=0; i<dCnt; i++){
+    ellipse(dx[i], dy[i], dSize, dSize);
+  }
 }
 
 
@@ -167,6 +179,5 @@ function draw() {
   movePacman();
   drawWalls();
   drawPacman();
-  drawBean(300, 300);
-
+  drawBean();
 }
