@@ -83,6 +83,57 @@ function checkWall(nx, ny, wx, wy, ww, wh){ // 벽인지 아닌지 체크하는 
       ny -10 < wy + wh);
 } //벽에 닿으면 true(벽임) 반환, 벽에 안닿으면 false(벽 아님) 반환
 
+function hitWall(){
+    if (
+    checkWall(nx, ny, 50, 70, 310, 35) === false &&
+    checkWall(nx, ny, 420, 70, 310, 35) === false &&
+    checkWall(nx, ny, 50, 70, 35, 175) === false &&
+    checkWall(nx, ny, 725, 70, 35, 175) === false &&
+
+    checkWall(nx, ny, 50, 500, 700, 35) === false &&
+    checkWall(nx, ny, 50, 370, 35, 165) === false &&
+    checkWall(nx, ny, 725, 370, 35, 165) === false &&
+
+    checkWall(nx, ny, 360, 70, 25, 80) === false &&
+    checkWall(nx, ny, 415, 70, 25, 80) === false &&
+    checkWall(nx, ny, 360, 150, 80, 25) === false &&
+
+    checkWall(nx, ny, 0, 245, 85, 30) === false &&
+    checkWall(nx, ny, 0, 340, 85, 30) === false &&
+    checkWall(nx, ny, 725, 245, 85, 30) === false &&
+    checkWall(nx, ny, 725, 340, 85, 30) === false &&
+
+    checkWall(nx, ny, 360, 250, 90, 25) === false &&
+    checkWall(nx, ny, 360, 275, 25, 80) === false &&
+    checkWall(nx, ny, 360, 355, 90, 25) === false &&
+    checkWall(nx, ny, 425, 275, 25, 80) === false &&
+
+    checkWall(nx, ny, 335, 435, 130, 15) === false &&
+    checkWall(nx, ny, 390, 415, 15, 50) === false &&
+
+    checkWall(nx, ny, 130, 150, 140, 25) === false &&
+    checkWall(nx, ny, 130, 150, 35, 130) === false &&
+    checkWall(nx, ny, 200, 210, 120, 25) === false &&
+
+    checkWall(nx, ny, 265, 390, 25, 80) === false &&
+    checkWall(nx, ny, 130, 390, 25, 80) === false &&
+    checkWall(nx, ny, 130, 445, 160, 25) === false &&
+    checkWall(nx, ny, 150, 330, 150, 15) === false &&
+
+    checkWall(nx, ny, 510, 160, 180, 25) === false &&
+    checkWall(nx, ny, 510, 160, 25, 120) === false &&
+    checkWall(nx, ny, 665, 160, 25, 120) === false &&
+    checkWall(nx, ny, 590, 280, 100, 25) === false &&
+
+    checkWall(nx, ny, 520, 380, 25, 30) === false &&
+    checkWall(nx, ny, 520, 355, 150, 25) === false &&
+    checkWall(nx, ny, 645, 435, 25, 30) === false &&
+    checkWall(nx, ny, 520, 410, 150, 25) === false) {
+      px = nx; //즉 현 위치는 이동한 위치가 됨
+      py = ny;
+  }
+}
+
 function movePacman() {
   let nx = px; //nx는 이동한 위치
   let ny = py;
@@ -91,16 +142,6 @@ function movePacman() {
   if (keyIsDown(RIGHT_ARROW)) nx += 3;
   if (keyIsDown(UP_ARROW)) ny -= 3;
   if (keyIsDown(DOWN_ARROW)) ny += 3;
-
-  if (
-    checkWall(nx, ny, 50, 70, 310, 35) === false &&
-    checkWall(nx, ny, 420, 70, 310, 35) === false &&
-    checkWall(nx, ny, 50, 70, 35, 175) === false &&
-    checkWall(nx, ny, 725, 70, 35, 175) === false
-  )
-
-  px = nx; //즉 현 위치는 이동한 위치가 됨
-  py = ny;
 }
 
 function setup() {
@@ -116,5 +157,6 @@ function draw() {
   movePacman();
   drawWalls();
   drawPacman();
+  hitWall();
 
 }
