@@ -271,7 +271,7 @@ function textGameMessage(){
     textSize(30);
     stroke(255, 105, 180);
     strokeWeight(4);
-    text("다시 시작하고 싶으시면 스페이스바를 누르세요.", 50, 360);
+    text("다시 시작하고 싶으시면 스페이스바를 누르세요.", 130, 360);
   }
 
   if(gameOver === true){   
@@ -299,9 +299,14 @@ function gameRestart(){
       score = 0;
       energy = 3;
 
-      bean1, bean2, bean3, bean4, bean5 = true;
+      bean1 = true;
+      bean2 = true;
+      bean3 = true;
+      bean4 = true;
+      bean5 = true;
 
-      gameClear, gameOver = false;
+      gameClear = false;
+      gameOver = false;
 
       for (let i = 0; i < eCnt; i++) {
         ex[i] = random(100, 700);
@@ -325,13 +330,16 @@ function setup() {
 function draw() {
   background(0);
 
-  movePacman();
+  if(gameOver === false && gameClear=== false){
+    movePacman();
+    eatBeans();
+    hitEnemy();
+  } //게임이 끝나지 않았을 경우에만 실행 가능, 게임 종료 텍스트 뜨면 실행x
+
   drawWalls();
   drawBeans();
   drawEnemy();
   drawPacman();
-  eatBeans();
-  hitEnemy();
   textScore();
   textEnergy();
   gameEnd();
